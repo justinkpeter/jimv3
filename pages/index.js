@@ -5,12 +5,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRightIcon} from "@heroicons/react/24/solid";
 import { galleryState } from "@/atoms/selectedGallery";
-import {LocomotiveScrollProvider} from "react-locomotive-scroll";
-import {scrollOptions} from "@/utils/scrollOptions";
 import {useRef} from "react";
 
 export default function Home() {
-
       const gallery = useRecoilValue(galleryState)
       const containerRef = useRef(null);
 
@@ -24,26 +21,12 @@ export default function Home() {
           </div>
           <div className={'absolute top-[8vh] font-medium sm:w-[30vw] w-[80vw]  sm:left-[10%] pl-2 sm:pl-4 2xl:w-[25vw] 2xl:text-3xl whitespace-normal '}>
             <p>Photography is more than just “taking photos”,  but rather a ubiquitous art form, weaving creativity and wizardry into the fabric of our lives to create timeless moments.</p>
-            <div className={'py-16'}></div>
-              <Link href={gallery.toString()}>
-                    <MagneticButton> <ArrowRightIcon className={'w-10 h-10'}/> </MagneticButton>
+              <Link href={gallery.toString()} className={'absolute left-0'}>
+                    <MagneticButton> <ArrowRightIcon className={'w-10 h-10 text-black'}/> </MagneticButton>
               </Link>
           </div>
         </main>
 
-          // <>
-          //     <LocomotiveScrollProvider options={scrollOptions} containerRef={containerRef} watch={[]}>
-          //         <main data-scroll-section className={'w-[300vw]'}>
-          //             <div className={'w-36 h-36 bg-blue-300'}>
-          //
-          //             </div>
-          //         </main>
-          //     </LocomotiveScrollProvider>
-          // </>
 
-
-          // <>
-          //     <div className={'w-screen h-screen bg-green-200'}></div>
-          // </>
   )
 }

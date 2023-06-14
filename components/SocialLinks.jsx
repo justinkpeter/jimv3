@@ -2,7 +2,6 @@ import Link from "next/link";
 
 export function SocialLinks() {
 
-
 	const LINKS = {
 		github: 'https://github.com/justinkpeter',
 		instagram: 'https://www.instagram.com/justincrediblemoments/',

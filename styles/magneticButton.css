@@ -34,7 +34,7 @@
     top: 50%;
     background: white;
     opacity: 0.4;
-    mix-blend-mode: difference;
+    /*mix-blend-mode: difference;*/
     transform-origin: 50% 50%;
 }
 

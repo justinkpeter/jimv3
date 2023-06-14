@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import { CAPTIONS }  from '../utils/captions'
+import { CAPTIONS }  from '@/utils/captions'
 import Link from "next/link";
 import {scrollOptions} from "@/utils/scrollOptions";
 import {LocomotiveScrollProvider} from "react-locomotive-scroll";
