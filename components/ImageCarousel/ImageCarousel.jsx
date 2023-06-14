@@ -130,7 +130,7 @@ export const ImageCarousel = () => {
 						<img src={image.imageSrc} alt="gallery" />
 						<div
 							className={`active-indicator ${
-								image.id === activeImageIndex ? "active" : null
+								image.id === carouselIndex ? "active" : null
 							}`}
 						/>
 					</div>
