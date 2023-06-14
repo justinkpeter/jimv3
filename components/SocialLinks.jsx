@@ -3,8 +3,8 @@ import Link from "next/link";
 export function SocialLinks() {
 
 	const LINKS = {
-		github: 'https://github.com/justinkpeter',
-		instagram: 'https://www.instagram.com/justincrediblemoments/',
+		github: 'https://github.com/justinkpeter/jimv3',
+		instagram: 'https://www.instagram.com/justincrediblemoments',
 		twitter: 'https://twitter.com/_justinpeter'
 	}
 	return (
