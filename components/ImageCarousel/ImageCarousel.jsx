@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from "react"
+import React, {useEffect, useState} from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { wrap } from "@popmotion/popcorn"
 import { IMAGES } from "./images"
@@ -29,7 +29,7 @@ const sliderTransition = {
 export const ImageCarousel = () => {
 	const [[imageCount, direction], setImageCount] = useState([0, 0])
 	const [gallery, setGallery] = useRecoilState(galleryState)
-	// const [carouselIndex, setCarouselIndex] = useRecoilState(carouselState)
+	const [carouselIndex, setCarouselIndex] = useState(null)
 
 	const activeImageIndex = wrap(0, IMAGES.length, imageCount)
 
@@ -50,10 +50,8 @@ export const ImageCarousel = () => {
 	const skipToImage = imageId => {
 		//update selected gallery
 		setGallery(imageId)
-		// setCarouselIndex(imageId)
-		if(typeof window !== 'undefined') {
-			console.log('setting image to #', imageId)
-		}
+		// update local storage
+		updateSelectedGallery(imageId)
 
 		let changeDirection
 		if (imageId > activeImageIndex) {
@@ -64,6 +62,32 @@ export const ImageCarousel = () => {
 		setImageCount([imageId, changeDirection])
 	}
 
+	const updateSelectedGallery = (imageId) => {
+		// check local storage for selected gallery
+		const selectedGallery = localStorage.getItem('selectedGallery')
+		// if selected gallery is not in local storage, add it
+		if(!selectedGallery) {
+			localStorage.setItem('selectedGallery', imageId)
+		}
+		// if selected gallery is in local storage, update it
+		else {
+			localStorage.setItem('selectedGallery', imageId)
+		}
+	}
+
+	useEffect(() => {
+		// check local storage for selected gallery
+		const selectedGallery = parseInt(localStorage.getItem('selectedGallery'))
+
+		// if selected gallery is in local storage, set carousel index to selected gallery
+		if(selectedGallery) {
+			setCarouselIndex(selectedGallery)
+		}
+		else{
+			setCarouselIndex(0)
+		}
+	}, [activeImageIndex])
+
 	return (
 		<main>
 			<div className="slider-container">
@@ -73,8 +97,8 @@ export const ImageCarousel = () => {
 							layoutId="header"
 							key={imageCount}
 							style={{
-								// backgroundImage: `url(${IMAGES[carouselIndex !== 0 ? carouselIndex : activeImageIndex].imageSrc})`
-								backgroundImage: `url(${IMAGES[activeImageIndex].imageSrc})`
+								backgroundImage: `url(${IMAGES[carouselIndex !== null ? carouselIndex : activeImageIndex].imageSrc})`
+								// backgroundImage: `url(${IMAGES[activeImageIndex].imageSrc})`
 							}}
 							custom={direction}
 							variants={sliderVariants}
