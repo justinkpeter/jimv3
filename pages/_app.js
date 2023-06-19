@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
 
     return (
       <>
-          <main className={'font-clash text-white uppercase bg-[#747066] h-screen w-screen overflow-hidden select-none'}
+          <main className={'font-clash text-white uppercase bg-[#747066] h-screen w-screen overflow-hidden fixed top-0  select-none'}
                 data-scroll-container ref={containerRef}>
               <LayoutGroup>
                   <RecoilRoot>

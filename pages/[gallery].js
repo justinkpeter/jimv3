@@ -23,14 +23,14 @@ export default function Gallery() {
                 <main data-scroll-container className={'bg-[#747066] h-screen relative uppercase'} ref={containerRef}>
                     <motion.h1
                         layoutId={"title"}
-                        className={'absolute w-[90vw] h-fit left-[8.5vw] xl:left-[9.5vw] top-[40%] flex items-center justify-center uppercase font-semibold text-[6.25vw] xl:text-[5.5vw] 2xl:text-[5vw] z-10 '}>
+                        className={'absolute w-[90vw] h-fit left-[5.5vw] sm:left-[8.5vw] xl:left-[9.5vw] top-[40%] flex items-center justify-center uppercase font-semibold text-[5.25vw] xl:text-[5.5vw] 2xl:text-[5vw] z-10 '}>
                         justincrediblemoments
                     </motion.h1>
                     {/* gallery cover*/}
-                    <div data-scroll-section className={'w-[90vw] h-screen relative -top-12 left-[8vw]  mx-auto mb-16 pointer-events-none'}>
+                    <div data-scroll-section className={'w-[90vw] h-screen relative -top-12 left-[5vw] sm:left-[8vw]  mx-auto mb-16 pointer-events-none'}>
                         <motion.img
                             layoutId="header"
-                            src={`/img/${galleryId}/0.jpg`} alt={''} className={'mx-auto mt-[25%] md:mt-[15%] lg:mt-[8%] w-[85vw] h-[95vh] shadow-lg rounded-lg sm:w-[30vw] sm:h-[45vw] md:w-[85vw] md:h-[95vh] lg:w-[45vw] xl:h-[85vh] object-cover'}
+                            src={`/img/${galleryId}/0.jpg`} alt={''} className={'mx-auto mt-[25%] md:mt-[15%] lg:mt-[8%] w-[100vw] h-[95vh] shadow-lg rounded-lg sm:w-[30vw] sm:h-[45vw] md:w-[85vw] md:h-[95vh] lg:w-[45vw] xl:h-[85vh] object-cover'}
                             data-scroll data-scroll-speed={'1'} />
                         <div className={'absolute w-fit h-10 right-[14vw] bottom-[32vh] xl:right-[19vw] 2xl:right-[22vw] text-right text-sm 2xl:text-xl'}>
                             <div data-scroll data-scroll-speed={'4'}> {CAPTIONS[galleryId]?.title}</div>
